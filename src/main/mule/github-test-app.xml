@@ -21,6 +21,13 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 				<ee:set-variable variableName="client-secret" ><![CDATA[attributes.headers.'client-secret']]></ee:set-variable>
 			</ee:variables>
 		</ee:transform>
-		<flow-ref doc:name="firstLogicSub_Flow" doc:id="34785ef2-d78d-40d0-b097-f1486c263729" name="firstLogicSub_Flow"/>
+		<choice doc:name="Choice" doc:id="56aad988-24ae-45de-8b3c-a4e8b00f8bc0" >
+			<when expression="#[sizeOf(vars.'x-correlation-id') &gt; 0]">
+				<flow-ref doc:name="firstLogicSub_Flow" doc:id="34785ef2-d78d-40d0-b097-f1486c263729" name="firstLogicSub_Flow" />
+			</when>
+			<otherwise>
+				<flow-ref doc:name="secondLogicFlow" doc:id="9060ba3c-d589-4e5c-b95a-96cf4de72cc5" name="secondLogicFlow"/>
+			</otherwise>
+		</choice>
 	</flow>
 </mule>

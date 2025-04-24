@@ -18,4 +18,18 @@ output application/json
 			</ee:message>
 		</ee:transform>
 	</sub-flow>
+	<flow name="secondLogicFlow" doc:id="fa18cb36-fee8-40de-8c86-6f707b6d6f26" >
+		<ee:transform doc:name="Transform Message" doc:id="f4f2bab9-9952-4823-bbda-b4ccec793506" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"custom-correlation-id" : uuid(),
+	"client-id" : vars.'client-id',
+	"client-secret" : vars.'client-secret'
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
 </mule>
