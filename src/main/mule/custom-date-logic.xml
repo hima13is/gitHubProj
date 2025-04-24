@@ -14,7 +14,8 @@ payload ++ {
 	"Date" : now(),
 	"MyId" : uuid(),
 	"Field" : "Extra feature field",
-	"Field 2" : "Pull Check field"				
+	"Field 2" : "Pull Check field",
+	"userName" : "Hello My username"		
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
