@@ -12,7 +12,8 @@ output application/json
 ---
 payload ++ {
 	"Date" : now(),
-	"MyId" : uuid()
+	"MyId" : uuid(),
+	"Field" : "Extra feature field"
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
