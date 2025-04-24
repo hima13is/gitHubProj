@@ -29,5 +29,22 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 				<flow-ref doc:name="secondLogicFlow" doc:id="9060ba3c-d589-4e5c-b95a-96cf4de72cc5" name="secondLogicFlow"/>
 			</otherwise>
 		</choice>
+		<ee:transform doc:name="Transform Message" doc:id="cd8cd19c-6fcd-494e-af6b-82b24b30d3f2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="dfb1a76c-f99e-4eb7-b5eb-710c05333673" name="custom-date-logicFlow"/>
+		<ee:transform doc:name="Transform Message" doc:id="592619b1-fd92-4100-a564-e571b7a4a50f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
 </mule>
